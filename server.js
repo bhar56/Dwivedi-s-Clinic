@@ -6,7 +6,7 @@ const nodemailer = require("nodemailer");
 
 
 const app = express();
-const PORT = 3000;
+const port = process.env.PORT || 3000;
 
 
 // ===== Set View Engine =====
@@ -83,7 +83,7 @@ app.post("/appointment", async (req, res) => {
       <p><b>Email:</b> ${email}</p>
       <p><b>Phone:</b> ${phone}</p>
       <p><b>Doctor:</b> ${doctor}</p>
-      <p><b>Mode:</b> ${mode}</p>
+      
       <p><b>Date:</b> ${date}</p>
       <p><b>Time:</b> ${time}</p>
       <p><b>Message:</b> ${message}</p>
@@ -125,3 +125,4 @@ app.post("/contact", (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
 });
+
