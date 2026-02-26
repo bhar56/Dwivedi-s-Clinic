@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book Appointment</title>
+
+    <!-- Responsive -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="doctor_my.css">
+</head>
+
+<body>
+
+    <!-- ===== Navbar ===== -->
+   <header>
+        <nav class="navbar">
+            <div class="logo">
+                <h2>Dr. Dwivedi's Multi-speciality Homoeopathy & Cosmetic Clinic</h2>
+            </div>
+
+            <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/doctor">Our Doctors</a></li>
+            <li class="dropdown">
+             <a href="#">Services ▾</a>
+            <ul class="dropdown-menu">
+        <li><a href="/homeopathic">Homeopathic Services</a></li>
+        <li><a href="/cosmetology">Cosmetology Services</a></li>
+        </ul>
+        </li>
+
+            <li><a href="/appointment">Appointments</a></li>
+             <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+
+
+    <!-- ===== Appointment Section ===== -->
+    <section class="appointment-section">
+
+        <div class="appointment-container">
+
+            <h1>Book an Appointment</h1><br>
+            <p>Fill the form below and our team will contact you shortly.</p><br>
+
+            <!-- Appointment Form -->
+            <form action="/appointment" method="POST" class="appointment-form">
+
+                <!-- Patient Name -->
+                <div class="form-group">
+                    <label>Full Name</label>
+                    <input type="text" name="name" placeholder="Enter your full name" required>
+                </div><br>
+
+                <!-- Email -->
+                <div class="form-group">
+                    <label>Email Address</label>
+                    <input type="email" name="email" placeholder="Enter your email" required>
+                </div><br>
+
+                <!-- Phone -->
+                <div class="form-group">
+                    <label>Phone Number</label>
+                    <input type="tel" name="phone" placeholder="Enter your phone number" required>
+                </div><br>
+
+                <!-- Doctor Select -->
+                <div class="form-group">
+                    <label>Select Doctor</label>
+                    <select name="doctor" required>
+                        <option value="">-- Choose Doctor --</option>
+                        <option>Dr. Abhishek Dwivedi (Classical Homeopath)</option>
+                        <option>Dr. Vaishali Bhargava (Dermentologist)</option>
+                        
+                    </select>
+                </div><br>
+                 <div>
+                     <label>Select Service Mode </label>
+                    <select name="doctor" required>
+                        <option value="">-- Choose Service Mode --</option>
+                        <option>Offline</option>
+                        <option>Online</option>
+                         </select>
+                 </div><br>
+
+                <!-- Date -->
+                <div class="form-group">
+                    <label>Appointment Date</label>
+                    <input type="date" name="date" required>
+                </div><br>
+
+                <!-- Time -->
+                <div class="form-group">
+                    <label>Preferred Time</label>
+                    <input type="time" name="time" required>
+                </div><br>
+
+                <!-- Message -->
+                <div class="form-group">
+                    <label>Message</label>
+                    <textarea name="message" rows="4" placeholder="Write your problem..."></textarea>
+                </div><br>
+
+                <!-- Submit Button -->
+                <button type="submit" class="btn">
+                    Book Appointment
+                </button><br>
+
+            </form>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ===== Footer ===== -->
+ <footer class="footer">
+
+        <div class="footer-left">
+            <p>Physical College Rd, near Moti Baba <br>Shivpuri, Madhya Pradesh 473638</p>
+        </div>
+
+        <div class="footer-right">
+            
+
+                   <div class="social-icons">
+               <div class="social-icons">
+    <a href="https://wa.me/917415772776" target="_blank">WhatsApp</a>
+    <a href="https://www.instagram.com/dr.dwivedi_homoeo_cosmetology/" target="_blank">Instagram</a>
+    <a href="https://www.facebook.com/search/top?q=dwivedi%27s%20homoeopathic%20clinic" target="_blank">Facebook</a>
+</div>
+
+            </div>
+        </div>
+
+    </footer>
+
+
+</body>
+</html>
