@@ -479,4 +479,34 @@ margin-bottom: 15px;
 .contact-section{
     text-align: center;
 }
+/* Mobile Navbar Fix */
+@media (max-width: 768px) {
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #007b8f; /* use your navbar color */
+    position: absolute;
+    top: 60px; /* adjust if your navbar height is different */
+    left: 0;
+    padding: 15px 0;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .menu-toggle {
+    display: block;
+    font-size: 24px;
+    cursor: pointer;
+  }
+}
+.menu-toggle {
+  display: none;
+}
+
+
+
 
