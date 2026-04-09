@@ -1,1 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Dr. Dwivedi's Multi-speciality Homoeopathy & Cosmetic Clinic</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ <!-- CSS Link -->
+    <link rel="stylesheet" href="doctor_my.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+    <header> <!--Header tag is given for header and then nav tag for nav bar -->
+        <nav class="navbar">
+            <div class="logo">
+                <h2>Dr. Dwivedi's Multi-speciality Homoeopathy & Cosmetic Clinic</h2>
+            </div>
+<!--This nav bar has two parts left is name of clinic and right side having different pages links -->
+<!--a div forleft side part and a unordered list for links -->
+            <ul class="nav-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/doctor">Our Doctors</a></li>
+            <!--class dropdown shows item inside a menu (like navbar)
+class="dropdown" → used for styling & functionality
+It tells CSS/JS: “this item has a dropdown”
+This is the main visible menu item
+Text: Services
+▾ → small arrow showing dropdown
+href="#" → means it doesn’t go anywhere (just clickable)-->
+            <li class="dropdown">
+             <a href="#">Services ▾</a>
+            <ul class="dropdown-menu">
+        <li><a href="/homeopathic">Homeopathic Services</a></li>
+        <li><a href="/cosmetology">Cosmetology Services</a></li>
+        </ul>
+        </li>
+ <li><a href="/appointment">Appointments</a></li>
+             <li><a href="/gallery">Gallery</a></li>
+            <li><a href="/contact">Contact</a></li>
+            </ul>
+             <div class="menu-toggle">☰</div>
+        </nav>
+    </header>
+
+
+    <!-- ================= HERO SECTION ================= -->
+     <!--adding text content and picture added by css-->
+    <section class="hero">
+ </section>
+
+ <section class="doctors">
+<!--In this div a image h3 tag paragraph and second paragraph tag for content taken-->
+        <div class="doctor-cardleft">
+            <img src="abhishek.jpg" alt="Dr Abhishek Dwivedi">
+
+            <h3>Dr Abhishek Dwivedi</h3><br>
+            <p class="speciality">Classical Homeopathy</p>
+ <p>
+                Dr. Abhishek Dwivedi is a Homeopathic Doctor providing natural, safe, and root-cause–based treatment for lasting wellness.
+ </p>
+        </div>
+
+ <div class="doctor-cardright">
+            <img src="vaishali.jpg" alt="Dr.Vaishali Dwivedi">
+
+            <h3>Dr.Vaishali Dwivedi</h3><br>
+            <p class="speciality">Modern Cosmetologist</p>
+
+            <p>
+               Vaishali Dwivedi is a Modern Cosmetologist offering advanced skin and hair treatments with safe, personalized care for natural, visible results.
+
+            </p>
+        </div>
+
+    </section>
+
+ <!-- ================= FOOTER ================= -->
+     <!--Making a footer tag in this a div for left content address and another div for whatapp facebook like links -->
+    <footer class="footer">
+
+        <div class="footer-left">
+            
+            <a href="https://www.google.com/maps/dir//Dr.+Dwivedi's+Multi-speciality+Homoeopathy+%26+Cosmetic+Clinic,+Physical+College+Rd,+near+Moti+Baba,+Indira+Colony,+Shivpuri,+Madhya+Pradesh+473638/@22.2882883,70.8034317,14z/data=!3m1!4b1!4m8!4m7!1m0!1m5!1m1!1s0x3970b957a4507623:0x383a82215f043662!2m2!1d77.6616712!2d25.4257251!5m1!1e1?entry=ttu&g_ep=EgoyMDI2MDIxOC4wIKXMDSoASAFQAw%3D%3D" target="_blank" >
+                <div class="footerleft-content">
+<i class="fas fa-map-marker-alt"></i><p>Physical College Rd, near Moti Baba, <br>Indira Colony Shivpuri, Madhya Pradesh  </p>
+                </div></a>
+            
+     
+        </div>
+
+        <div class="footer-right">
+            
+
+    <div class="footer-icons">
+  <a href="https://wa.me/917415772776" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+  <a href="https://www.facebook.com/search/top?q=dwivedi%27s%20homoeopathic%20clinic"><i class="fab fa-facebook-f"></i> Facebook</a>
+  <a href="https://www.instagram.com/dr.dwivedi_homoeo_cosmetology/"><i class="fab fa-instagram"></i> Instagram</a>
+</div>
+
+            </div>
+        </div>
+
+    </footer>
+    <!--This code in script is for menu bar when used in mobile when we click on that menu appears 
+    and when again click menu disappears...selecting menu-toggle and nav-links...navLinks.classList.toggle("active");
+    This line does the magic:
+If .active is not present → it adds it
+If .active exists → it removes it-->
+    <script>
+const toggle = document.querySelector(".menu-toggle");
+const navLinks = document.querySelector(".nav-links");
+
+toggle.addEventListener("click", () => { 
+    navLinks.classList.toggle("active");
+});
+</script>
+
+
+</body>
+</html>
 
