@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // Home
 app.get("/", (req, res) => {
-    res.render("doctorspage.ejs");
+    res.render("Home.ejs");
 });
 
 // Doctors
