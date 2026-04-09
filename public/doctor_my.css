@@ -1,17 +1,38 @@
-/* ================= RESET ================= */
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
     font-family: Arial, Helvetica, sans-serif;
+    
 }
+body {
+    overflow-x: hidden;
+}
+/*overflow-x controls horizontal overflow (left–right direction).
+hidden means: anything that goes outside the width of the page will be cut off and not visible, and no horizontal scrollbar will appear.*/
+
 
 /* ================= NAVBAR ================= */
+/* display: flex;
+Turns the navbar into a flex container
+justify-content: space-between;
+Distributes items horizontally
+First item → left side
+Last item → right side
+Space is evenly placed between them
+align-items: center;
+Aligns items vertically in the middle
+padding: 18px 40px;
+Adds space inside the navbar:
+18px → top & bottom
+40px → left & right
+position: relative;
+Sets the navbar as a reference point for positioned child elements*/
 .navbar{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:#9cebeb;
+    background:#ace8e8;
     padding:18px 40px;
     position:relative;
 }
@@ -21,7 +42,7 @@
     font-weight:600;
 }
 
-/* Desktop Nav */
+/* nav-links display flex make horizontal then add gaps nav-links a hover makes color change when hover*/
 .nav-links{
     display:flex;
     gap:20px;
@@ -91,7 +112,7 @@
     }
 
     .logo h2{
-        font-size:14px;
+        font-size:10px;
     }
 
     .menu-toggle{
@@ -108,6 +129,7 @@
         background:#9cebeb;
         padding:15px 0;
         z-index:999;
+        margin-left: 0;
     }
 
     .nav-links.active{
@@ -132,165 +154,172 @@
         padding:6px 0;
     }
 }
+/* ================= Home.ejs ================= */
 
-/* ================= HERO SECTION ================= */
 .hero{
-    height:270px;
-    background:rgba(0,0,0,0.35);
-    background: url("image.webp");
+    height:300px;
+    width: 100%;
+    max-width: 1250px;
+    background: rgba(0,0,0,0.35) url("bannerfinal.png");
     background-size: cover;
+    margin: 10px;
+    border-radius: 5px;
+    background-position: center;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-.hero-content{
-     color:#fff;
-      font-size:22px;
-    font-weight:100;
-}
-/* ================= DOCTORS SECTION ================= */
+
+
 .doctors{
     display:flex;
     justify-content:center;
-    gap:150px;
-    padding:20px 60px;
+    
+    gap:70px;
+    padding:40px;
     background:#f8f8f8;
+    flex-wrap: wrap; /* important */
 }
-.doctor-card{
+
+.doctor-cardleft,
+.doctor-cardright{
     text-align: center;
-    width: 320px;
-    background-color: white;
-    border-radius: 10PX;
-    
-    
+    width:100%;
+    max-width: 400px; /* responsive */
+    background-color: #f8f8f8;
+    border-radius: 10px;
+    padding-bottom: 15px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: rgb(122, 122, 122);
 }
-.doctor-card img{
-width: 150px;
-height: 150px;
-border-radius: 50%;
+
+.doctor-cardleft img
+
+{
+    width: 100%;
+max-width: 400px;
+height: 250px;
+border-radius: 15px;
 object-fit: cover;
 padding-top: 10PX;
 
 }
+
+.doctor-cardright img{
+width: 100%;
+max-width: 400px;
+height: 250px;
+border-radius: 15px;
+object-fit: cover;
+padding-top: 10PX;
+
+}
+
+/* ================= DOCTOR.ejs ================= */
+.doctor{
+    display:flex;
+    justify-content:center;
+    gap:40px;
+    padding:20px;
+    background:#f8f8f8;
+    flex-wrap: wrap; /* important */
+}
+
+.doctor-card{
+    width:100%;
+    max-width:500px; /* reduced from 600 */
+    background-color: #f8f8f8;;
+    border-radius: 10px;
+    padding-bottom: 15px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    color: rgb(122, 122, 122);
+    text-align:center;
+}
+
+.doctor-card img{
+    width:100%;
+    height: 250px;
+    max-width:300px;
+    
+    border-radius: 15px;
+    object-fit: cover;
+    padding-top: 10px;
+
+}
+
 .doctor-card h3{
     margin-top:10px;
     font-size:18px;
 }
+
 .speciality{
-    
     font-weight:600;
-
-
 }
+
 .doctor-card p{
     font-size:14px;
     color:#555;
     line-height:1.6;
 }
-/* ================= DOCTORS PAGE EXTRA CSS ================= */
-.doctor-cardleft{
-    text-align: center;
-    width: 600px;
-    background-color: white;
-    border-radius: 10PX;
-    padding-bottom: 15px;
-    font-size: 15px;
-    margin-bottom: 20px;
-    color: rgb(122, 122, 122);
-    
-    
+.About{
+    font-size: 18px;
 }
-.doctor-cardleft img{
-width: 200px;
-height: 200px;
-border-radius: 15px;
-object-fit: cover;
-padding-top: 10PX;
-
+.Experience{
+    font-size: 18px;
 }
-.doctor-cardright{
-    text-align: center;
-    width: 600px;
-    background-color: white;
-    border-radius: 10PX;
-    padding-bottom: 15px;
-    font-size: 15px;
-    margin-bottom: 20px;
-    color: rgb(122, 122, 122);
-    
-    
-}
-.doctor-cardright img{
-width: 200px;
-height: 200px;
-border-radius: 15px;
-object-fit: cover;
-padding-top: 10PX;
-
-}
-.doctor{
-    display:flex;
-    justify-content:center;
-    gap:60px;
-    padding:20px 60px;
-    background:#f8f8f8;
+.Education{
+    font-size: 18px;
 }
 
 
+/* ================= MOBILE RESPONSIVE ================= */
+@media (max-width: 768px){
 
-/* ================= SERVICES SECTION ================= */
-.services{
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    background:#fff;
-     padding:10px 280px;
-}
-.services-left h2{
-    font-size:28px;
-    margin-bottom:20px;
-}
-.services-left ul{
-    list-style:disc;
-    padding-left:20px;
-}
-.services-left li{
-    margin-bottom:10px;
-    font-size:16px;
-}
-/* Right side */
-.learn-more{
-    text-decoration: underline;
-     color:#000;
-    font-size:15px;
-}
-.btn{
-    background:#2a7f7f;
-    color:#fff;
-    border:none;
-    padding:14px 26px;
-    font-size:15px;
-    cursor:pointer;
-    transition:0.3s;
-}
-.btn:hover{
-    background:#1e5f5f;
+    .hero{
+        height:180px;
+    }
+
+    .hero-content{
+        font-size:18px;
+    }
+
+    .doctors{
+        flex-direction: column;
+        align-items: center;
+        gap:20px;
+    }
+
+    .doctor{
+        flex-direction: column;
+        align-items: center;
+        gap:20px;
+    }
+
+    .doctor-card{
+        max-width:90%;
+    }
+
+    .doctor-cardleft,
+    .doctor-cardright{
+        max-width:95%;
+    }
+
+    .doctor-card img{
+        width:100px;
+        height:100px;
+    }
 }
 
-/* Small hero for inner pages */
 
-.small-hero{
-    height:250px;
-}
-.servicecard-text{
-    margin-top: 10px;
-}
-/* EXTRA CSS FOR SERVICES PAGE */
+
+/* ================= SERVICES SECTION PAGES homeopathic and cosmetology  ================= */
 .services-heading{
     text-align: center;
-    margin-top: 10px;
-    font-size: 15px;
+    margin-top: 20px;
+    font-size: 20px;
 }
 
 .services-container {
@@ -302,7 +331,8 @@ padding-top: 10PX;
 }
 
 .service-card {
-    width: 300px;           /* Fixed width for each card */
+    width: 400px;           /* Fixed width for each card */
+    
     border: 1px solid #ddd;
     border-radius: 10px;
     padding: 20px;
@@ -311,18 +341,16 @@ padding-top: 10PX;
 }
 
 .service-card img {
-    width: 100%;
-    height: auto;
+    width: 350px;
+    height: 350px;
+    object-fit: fill;
     border-radius: 8px;
     margin: 15px 0;
+    
+    
 }
-/* ================= APPOINTMENT SECTION ================= */
-.appointment-section{
-    text-align: center;
-}
-.contact-container{
-    text-align: center;
-    margin-top: 20px;
+.service-card p{
+    text-align: justify;
 }
 
 
@@ -330,7 +358,8 @@ padding-top: 10PX;
 
 /* ===== Appointment Section ===== */
 .appointment-section {
-    background: white;
+    text-align: center;
+    background: rgb(247, 244, 240);
     padding: 60px 20px;
     display: flex;
     justify-content: center;
@@ -348,7 +377,7 @@ padding-top: 10PX;
 
 .appointment-container h1 {
     text-align: center;
-    color: #0d6efd;
+    color: #5778ac;
     margin-bottom: 10px;
 }
 
@@ -430,6 +459,10 @@ margin-top: 15px;
 margin-bottom: 15px;
 
 }
+.contact-section{
+    text-align: center;
+    margin-top: 25px;
+}
 
 
 
@@ -440,23 +473,41 @@ margin-bottom: 15px;
 /* ================= FOOTER ================= */
 .footer{
      display:flex;
+     color: white;
     justify-content:space-between;
     padding:25px 60px;
-    background:#f2f2f2;
+    background:#0c0c0c;
     font-size:14px;
-    margin-bottom: 5px;
-}
-.social-icons{
-    margin-top: 6px;
-}
-.social-icons span{
-    margin-left:12px;
-    cursor:pointer;
+    
 }
 
-.social-icons span:hover{
-    text-decoration:underline;
+.footer-icons a {
+  text-decoration: none;
+  margin-right: 15px;
+  color:white;
+  font-size: 16px;
+}
+
+.footer-icons i {
+  margin-right: 6px;
+  font-size: 18px;
+}
+
+/* Brand colors */
+.fa-whatsapp { color: #25D366; }
+.fa-facebook-f { color: #1877F2; }
+.fa-instagram { color: #E4405F; }
+
+.footer-left a{
+    color: white;
+}
+.footerleft-content{
+    display: flex;
+    gap: 10px;
 }
 
 
 
+
+
+ 
