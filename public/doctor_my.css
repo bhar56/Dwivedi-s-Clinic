@@ -157,21 +157,34 @@ Sets the navbar as a reference point for positioned child elements*/
 /* ================= Home.ejs ================= */
 
 .hero{
-    height:300px;
-    width: 100%;
+    /* Center in viewport without horizontal overflow (width + margin) */
+    width: min(100% - 1.25rem, 1250px);
     max-width: 1250px;
-    background: rgba(0,0,0,0.35) url("bannerfinal.png");
-    background-size: cover;
-    margin: 10px;
+    margin-inline: auto;
+    margin-block: 0.625rem;
+    padding-inline: clamp(0.75rem, 3vw, 1.5rem);
     border-radius: 5px;
+    /* Fluid banner height between phone and desktop */
+    min-height: clamp(11rem, 18vw + 6rem, 18.75rem);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("bannerfinal.png");
+    background-size: cover;
     background-position: center;
+    background-repeat: no-repeat;
     text-align: center;
     display: flex;
     align-items: center;
     justify-content: center;
 }
 
+@media (max-width: 768px){
 
+    .hero{
+        width: min(100% - 1rem, 1250px);
+        margin-block: 0.5rem;
+        padding-inline: 0.75rem;
+        min-height: clamp(10rem, 32vw + 4rem, 14rem);
+        background-position: center top;
+    }
 .doctors{
     display:flex;
     justify-content:center;
