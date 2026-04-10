@@ -5,8 +5,21 @@
     font-family: Arial, Helvetica, sans-serif;
     
 }
+:root{
+    --brand-primary: #2a7f7f;
+    --brand-accent: #5778ac;
+    --text-main: #1f2a37;
+    --text-muted: #5c6472;
+    --surface: #ffffff;
+    --surface-soft: #f7fafc;
+    --shadow-soft: 0 10px 24px rgba(15, 23, 42, 0.08);
+    --shadow-hover: 0 16px 30px rgba(15, 23, 42, 0.14);
+}
 body {
     overflow-x: hidden;
+    color: var(--text-main);
+    background: #f5f8fb;
+    line-height: 1.5;
 }
 /*overflow-x controls horizontal overflow (left–right direction).
 hidden means: anything that goes outside the width of the page will be cut off and not visible, and no horizontal scrollbar will appear.*/
@@ -32,14 +45,18 @@ Sets the navbar as a reference point for positioned child elements*/
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:#ace8e8;
+    gap: 16px;
+    background: linear-gradient(180deg, #bdf4f4 0%, #ace8e8 100%);
     padding:18px 40px;
     position:relative;
+    flex-wrap: wrap;
+    box-shadow: 0 8px 20px rgba(44, 117, 117, 0.12);
 }
 
 .logo h2{
-    font-size:18px;
+    font-size:clamp(14px, 1.8vw, 18px);
     font-weight:600;
+    color: #114b5f;
 }
 
 /* nav-links display flex make horizontal then add gaps nav-links a hover makes color change when hover*/
@@ -47,12 +64,15 @@ Sets the navbar as a reference point for positioned child elements*/
     display:flex;
     gap:20px;
     list-style:none;
+    flex-wrap: wrap;
 }
 
 .nav-links a{
     text-decoration:none;
     color:#333;
-    font-size:15px;
+    font-size:clamp(14px, 1.3vw, 15px);
+    font-weight: 600;
+    transition: color 0.25s ease;
 }
 
 .nav-links a:hover{
@@ -73,7 +93,7 @@ Sets the navbar as a reference point for positioned child elements*/
     padding:10px 0;
     min-width:180px;
     border-radius:6px;
-    box-shadow:0 8px 15px rgba(0,0,0,0.1);
+    box-shadow:0 10px 24px rgba(15, 23, 42, 0.15);
     display:none;
 }
 
@@ -112,7 +132,7 @@ Sets the navbar as a reference point for positioned child elements*/
     }
 
     .logo h2{
-        font-size:10px;
+        font-size:14px;
     }
 
     .menu-toggle{
@@ -163,7 +183,7 @@ Sets the navbar as a reference point for positioned child elements*/
     margin-inline: auto;
     margin-block: 0.625rem;
     padding-inline: clamp(0.75rem, 3vw, 1.5rem);
-    border-radius: 5px;
+    border-radius: 14px;
     /* Fluid banner height between phone and desktop */
     min-height: clamp(11rem, 18vw + 6rem, 18.75rem);
     background-image: linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url("bannerfinal.png");
@@ -176,86 +196,74 @@ Sets the navbar as a reference point for positioned child elements*/
     justify-content: center;
 }
 
-@media (max-width: 768px){
 
-    .hero{
-        width: min(100% - 1rem, 1250px);
-        margin-block: 0.5rem;
-        padding-inline: 0.75rem;
-        min-height: clamp(10rem, 32vw + 4rem, 14rem);
-        background-position: center top;
-    }
 .doctors{
     display:flex;
     justify-content:center;
     
-    gap:70px;
-    padding:40px;
+    gap:clamp(20px, 5vw, 70px);
+    padding:clamp(18px, 4vw, 40px);
     background:#f8f8f8;
     flex-wrap: wrap; /* important */
 }
 
 .doctor-cardleft,
-.doctor-cardright{
+.doctor-cardright,
+.doctor-card{
     text-align: center;
     width:100%;
-    max-width: 400px; /* responsive */
-    background-color: #f8f8f8;
-    border-radius: 10px;
+    background-color: var(--surface);
+    border-radius: 14px;
     padding-bottom: 15px;
     font-size: 15px;
     margin-bottom: 20px;
-    color: rgb(122, 122, 122);
+    color: var(--text-muted);
+    box-shadow: var(--shadow-soft);
+    border: 1px solid #e5e7eb;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+.doctor-cardleft,
+.doctor-cardright{
+    max-width: 400px; /* responsive */
+}
+.doctor-cardleft:hover,
+.doctor-cardright:hover,
+.doctor-card:hover,
+.service-card:hover{
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-hover);
 }
 
-.doctor-cardleft img
-
-{
-    width: 100%;
-max-width: 400px;
-height: 250px;
-border-radius: 15px;
-object-fit: cover;
-padding-top: 10PX;
-
-}
-
+.doctor-cardleft img,
 .doctor-cardright img{
-width: 100%;
-max-width: 400px;
-height: 250px;
-border-radius: 15px;
-object-fit: cover;
-padding-top: 10PX;
-
+    width: 100%;
+    max-width: 400px;
+    height: auto;
+    aspect-ratio: 8 / 5;
+    border-radius: 15px;
+    object-fit: cover;
+    padding-top: 10px;
 }
 
 /* ================= DOCTOR.ejs ================= */
 .doctor{
     display:flex;
     justify-content:center;
-    gap:40px;
-    padding:20px;
-    background:#f8f8f8;
+    gap:clamp(20px, 4vw, 40px);
+    padding:clamp(16px, 3vw, 20px);
+    background:var(--surface-soft);
     flex-wrap: wrap; /* important */
 }
 
 .doctor-card{
-    width:100%;
     max-width:500px; /* reduced from 600 */
-    background-color: #f8f8f8;;
-    border-radius: 10px;
-    padding-bottom: 15px;
-    font-size: 15px;
-    margin-bottom: 20px;
-    color: rgb(122, 122, 122);
-    text-align:center;
 }
 
 .doctor-card img{
     width:100%;
-    height: 250px;
+    height: auto;
     max-width:300px;
+    aspect-ratio: 6 / 5;
     
     border-radius: 15px;
     object-fit: cover;
@@ -266,6 +274,7 @@ padding-top: 10PX;
 .doctor-card h3{
     margin-top:10px;
     font-size:18px;
+    color: var(--text-main);
 }
 
 .speciality{
@@ -274,15 +283,11 @@ padding-top: 10PX;
 
 .doctor-card p{
     font-size:14px;
-    color:#555;
+    color:var(--text-muted);
     line-height:1.6;
 }
-.About{
-    font-size: 18px;
-}
-.Experience{
-    font-size: 18px;
-}
+.About,
+.Experience,
 .Education{
     font-size: 18px;
 }
@@ -292,11 +297,11 @@ padding-top: 10PX;
 @media (max-width: 768px){
 
     .hero{
-        height:180px;
-    }
-
-    .hero-content{
-        font-size:18px;
+        width: min(100% - 1rem, 1250px);
+        margin-block: 0.5rem;
+        padding-inline: 0.75rem;
+        min-height: clamp(10rem, 32vw + 4rem, 14rem);
+        background-position: center top;
     }
 
     .doctors{
@@ -321,8 +326,9 @@ padding-top: 10PX;
     }
 
     .doctor-card img{
-        width:100px;
-        height:100px;
+        width:100%;
+        max-width:220px;
+        height:auto;
     }
 }
 
@@ -333,30 +339,36 @@ padding-top: 10PX;
     text-align: center;
     margin-top: 20px;
     font-size: 20px;
+    color: #1e3a5f;
+    letter-spacing: 0.2px;
 }
 
 .services-container {
     display: flex;          /* Makes child elements inline */
-    gap: 30px;              /* Space between cards */
+    gap: clamp(16px, 3vw, 30px);              /* Space between cards */
     justify-content: space-evenly; /* Center cards horizontally */
     flex-wrap: wrap;        /* Makes it responsive */
-    margin: 40px 0;
+    margin: clamp(20px, 4vw, 40px) 0;
+    padding-inline: clamp(12px, 3vw, 24px);
 }
 
 .service-card {
-    width: 400px;           /* Fixed width for each card */
+    width: min(100%, 400px);           /* Fixed width for each card */
     
-    border: 1px solid #ddd;
-    border-radius: 10px;
-    padding: 20px;
+    border: 1px solid #e3e8ef;
+    border-radius: 14px;
+    padding: clamp(14px, 2.6vw, 20px);
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    box-shadow: var(--shadow-soft);
+    background: var(--surface);
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
-
 .service-card img {
-    width: 350px;
-    height: 350px;
-    object-fit: fill;
+    width: 100%;
+    max-width: 350px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
     border-radius: 8px;
     margin: 15px 0;
     
@@ -372,7 +384,7 @@ padding-top: 10PX;
 /* ===== Appointment Section ===== */
 .appointment-section {
     text-align: center;
-    background: rgb(247, 244, 240);
+    background: linear-gradient(180deg, #f7f4f0 0%, #eef3f9 100%);
     padding: 60px 20px;
     display: flex;
     justify-content: center;
@@ -384,13 +396,14 @@ padding-top: 10PX;
     width: 100%;
     max-width: 600px;
     padding: 40px;
-    border-radius: 12px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    border-radius: 16px;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid #e5e7eb;
 }
 
 .appointment-container h1 {
     text-align: center;
-    color: #5778ac;
+    color: var(--brand-accent);
     margin-bottom: 10px;
 }
 
@@ -422,9 +435,10 @@ padding-top: 10PX;
 .form-group textarea {
     padding: 10px;
     border-radius: 8px;
-    border: 1px solid #ccc;
+    border: 1px solid #d1d9e6;
     font-size: 14px;
-    transition: 0.3s;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease;
+    background: #fcfdff;
 }
 
 /* Focus Effect */
@@ -440,27 +454,30 @@ padding-top: 10PX;
 .btn {
     margin-top: 20px;
     padding: 12px;
-    background: #0d6efd;
+    background: linear-gradient(135deg, #2d7ff9 0%, #0d6efd 100%);
     color: white;
     border: none;
     border-radius: 8px;
     font-size: 16px;
     cursor: pointer;
-    transition: 0.3s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+    box-shadow: 0 8px 20px rgba(13, 110, 253, 0.28);
 }
 
 .btn:hover {
-    background: #084298;
+    background: linear-gradient(135deg, #1e64d2 0%, #0a58ca 100%);
     transform: translateY(-2px);
+    box-shadow: 0 12px 24px rgba(13, 110, 253, 0.35);
 }
 
 /* ===== Gallery Section ===== */
 #galleryimg{
-    width: 400px;
-height: 400px;
+    width: min(100%, 400px);
+height: auto;
+aspect-ratio: 1 / 1;
 border-radius: 15px;
 object-fit: cover;
-padding: 10PX;
+padding: 10px;
 
 }
 #contact-text{
@@ -475,6 +492,7 @@ margin-bottom: 15px;
 .contact-section{
     text-align: center;
     margin-top: 25px;
+    padding-inline: 12px;
 }
 
 
@@ -488,8 +506,11 @@ margin-bottom: 15px;
      display:flex;
      color: white;
     justify-content:space-between;
-    padding:25px 60px;
-    background:#0c0c0c;
+    align-items: center;
+    gap: 16px;
+    flex-wrap: wrap;
+    padding:25px clamp(20px, 6vw, 60px);
+    background: linear-gradient(180deg, #111827 0%, #0b1220 100%);
     font-size:14px;
     
 }
@@ -519,8 +540,66 @@ margin-bottom: 15px;
     gap: 10px;
 }
 
+@media (max-width: 768px){
+    .footer{
+        flex-direction: column;
+        text-align: center;
+        padding: 18px 16px;
+        gap: 12px;
+    }
+
+    .footerleft-content{
+        justify-content: center;
+        flex-wrap: wrap;
+        row-gap: 6px;
+    }
+
+    .footer-icons{
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .footer-icons a{
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 1024px){
+    .navbar{
+        padding: 16px 24px;
+    }
+
+    .appointment-container{
+        max-width: 90%;
+        padding: 28px 20px;
+    }
+}
+
+@media (max-width: 600px){
+    .services-heading{
+        font-size: 18px;
+        margin-top: 14px;
+    }
+
+    .appointment-section{
+        padding: 30px 12px;
+    }
+
+    .appointment-container h1{
+        font-size: 22px;
+    }
+
+    .appointment-container p{
+        font-size: 14px;
+    }
+
+    #contact-text{
+        font-size: 20px;
+    }
+}
 
 
 
 
- 
